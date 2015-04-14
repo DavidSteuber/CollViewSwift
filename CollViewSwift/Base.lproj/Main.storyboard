@@ -73,10 +73,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Navigation Item" id="Yqp-zo-w8z"/>
+                    <connections>
+                        <outlet property="imageView" destination="3bY-HC-7nn" id="B7V-Sk-8ZL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKa-Uh-uYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1236" y="389"/>
+            <point key="canvasLocation" x="1246" y="389"/>
         </scene>
     </scenes>
 </document>

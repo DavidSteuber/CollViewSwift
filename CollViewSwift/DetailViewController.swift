@@ -9,4 +9,10 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var image: UIImage?
+    @IBOutlet weak var imageView: UIImageView!
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        imageView.image = image
+    }
 }

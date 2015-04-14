@@ -22,12 +22,23 @@ class ViewController: UICollectionViewController {
         //
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(kCellID, forIndexPath: indexPath) as! Cell
 
+        // make the cell's title the actual NSIndexPath value
+        cell.label?.text = "{\(indexPath.row),\(indexPath.section)}"
+        let imageToLoad = "\(indexPath.row)"
+        cell.image?.image = UIImage(named: imageToLoad)
+
         return cell
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "whatever" {
-            // do some shit
+        if segue.identifier == "showDetail" {
+            let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems()[0] as! NSIndexPath
+            let imageNameToLoad = "\(selectedIndexPath.row)"
+            let pathToImage = NSBundle.mainBundle().pathForResource(imageNameToLoad, ofType: "JPG")
+            let image = UIImage(contentsOfFile: pathToImage!)
+
+            var detailViewController = segue.destinationViewController as! DetailViewController
+            detailViewController.image = image
         }
     }
 }
