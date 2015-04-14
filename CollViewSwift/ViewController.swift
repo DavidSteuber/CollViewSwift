@@ -24,7 +24,7 @@ class ViewController: UICollectionViewController {
 
         // make the cell's title the actual NSIndexPath value
         cell.label?.text = "{\(indexPath.row),\(indexPath.section)}"
-        let imageToLoad = "\(indexPath.row).JPG"
+        let imageToLoad = "images/thumb/\(indexPath.row).JPG"
         cell.image?.image = UIImage(named: imageToLoad)
 
         return cell
@@ -33,7 +33,7 @@ class ViewController: UICollectionViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let selectedIndexPath = self.collectionView?.indexPathsForSelectedItems()[0] as! NSIndexPath
-            let imageNameToLoad = "\(selectedIndexPath.row)_full"
+            let imageNameToLoad = "images/full/\(selectedIndexPath.row)_full"
             let pathToImage = NSBundle.mainBundle().pathForResource(imageNameToLoad, ofType: "JPG")
             let image = UIImage(contentsOfFile: pathToImage!)
 
